@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 960;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#9996a1", "id": "Family History", "label": "Family History", "level": 1, "shape": "dot"}, {"color": "#f57382", "id": "Endometriosis", "label": "Endometriosis", "level": 2, "shape": "dot"}, {"color": "#9996a1", "id": "Invasive Pelvic Procedure", "label": "Invasive Pelvic Procedure", "level": 1, "shape": "dot"}, {"color": "#9996a1", "id": "IBS-like Symptoms", "label": "IBS-like Symptoms", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "IBS", "label": "IBS", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Infertility", "label": "Infertility", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Chronic Fatigue", "label": "Chronic Fatigue", "level": 3, "shape": "dot"}, {"color": "#faaf96", "id": "Heavy Menstrual Bleeding", "label": "Heavy Menstrual Bleeding", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Depression / Anxiety", "label": "Depression / Anxiety", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Pain During Intercourse", "label": "Pain During Intercourse", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Painful Periods", "label": "Painful Periods", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Ovarian Cysts", "label": "Ovarian Cysts", "level": 3, "shape": "dot"}, {"color": "#9996a1", "id": "Painful Bowel Movements", "label": "Painful Bowel Movements", "level": 4, "shape": "dot"}, {"color": "#9996a1", "id": "Diarrhea", "label": "Diarrhea", "level": 4, "shape": "dot"}, {"color": "#9996a1", "id": "Nausea", "label": "Nausea", "level": 4, "shape": "dot"}, {"color": "#9996a1", "id": "Bloating", "label": "Bloating", "level": 4, "shape": "dot"}, {"color": "#9996a1", "id": "Abdominal Cramps", "label": "Abdominal Cramps", "level": 4, "shape": "dot"}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": "Family History", "to": "Endometriosis"}, {"arrows": "to", "from": "Endometriosis", "to": "IBS-like Symptoms"}, {"arrows": "to", "from": "Endometriosis", "to": "IBS"}, {"arrows": "to", "from": "Endometriosis", "to": "Infertility"}, {"arrows": "to", "from": "Endometriosis", "to": "Chronic Fatigue"}, {"arrows": "to", "from": "Endometriosis", "to": "Heavy Menstrual Bleeding"}, {"arrows": "to", "from": "Endometriosis", "to": "Depression / Anxiety"}, {"arrows": "to", "from": "Endometriosis", "to": "Pain During Intercourse"}, {"arrows": "to", "from": "Endometriosis", "to": "Painful Periods"}, {"arrows": "to", "from": "Endometriosis", "to": "Ovarian Cysts"}, {"arrows": "to", "from": "Invasive Pelvic Procedure", "to": "Endometriosis"}, {"arrows": "to", "from": "IBS-like Symptoms", "to": "Painful Bowel Movements"}, {"arrows": "to", "from": "IBS-like Symptoms", "to": "Diarrhea"}, {"arrows": "to", "from": "IBS-like Symptoms", "to": "Nausea"}, {"arrows": "to", "from": "IBS-like Symptoms", "to": "Bloating"}, {"arrows": "to", "from": "IBS-like Symptoms", "to": "Abdominal Cramps"}, {"arrows": "to", "from": "IBS", "to": "IBS-like Symptoms"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"edges": {"color": {"inherit": false}, "smooth": false}, "layout": {"hierarchical": {"enabled": true}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0, "nodeDistance": 160}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
