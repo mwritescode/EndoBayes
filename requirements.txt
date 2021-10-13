@@ -1,0 +1,10 @@
+matplotlib
+pgmpy==0.1.15
+numpy
+pandas
+tqdm==4.62.3
+pyppeteer==0.2.6
+pyvis
+xlrd>=1.0.0
+
+
