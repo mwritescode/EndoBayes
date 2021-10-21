@@ -13,6 +13,7 @@ All the data used in this work was collected last year by Shani Cohen, a compute
 ### Network
 The final proposed network is depicted in the following image and it has been analyzed in terms of independences, markov blankets and active trails. <br>
 <center> <img alt="Final Proposed Network" src="https://github.com/mwritescode/endobayes/blob/main/figures/final_network.png"> </center>
+
 After the analysis, the network has been used to solve two simple case studies, namely:
 * Finding the probability that a patient has Endometriosis, kowing that they have feel pain during intercourse, are bloated and have a family history of endometriosis, but they do not have neither IBS nor painful periods. This was solved through exact inference using Variable Elimination
 * Finding how likely it is for a patient to also have IBS when they have Endometriosis and suffer from nausea, bloating and ovarian cysts. This was solved through approximate inference, using Gibbs Sampling.
